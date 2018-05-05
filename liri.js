@@ -69,14 +69,21 @@ var choice = {
     },
     // if user entered a movie
     myMovie: function() {
-        console.log("in choice.myMovie . . . What to see -- " + whatToSee);
         var movieTitleWithPlus = movieTitle.split(" ").join("+");
-        console.log(movieTitleWithPlus);
         var queryUrl = "https://www.omdbapi.com/?t=" + movieTitleWithPlus + "&y=&plot=short&apikey=trilogy";
-        console.log(queryUrl);
         request(queryUrl, function(error, response, body) {
             if(!error && response.statusCode === 200) {
-                console.log(body);
+                console.log("");
+                console.log("-------------------------------");
+                console.log("Title of the movie: " + JSON.parse(body).Title);
+                console.log("Year the movie came out: " + JSON.parse(body).Year);
+                console.log("IMDB Rating of the movie: " + JSON.parse(body).imdbRating);
+                console.log("Rotten Tomatoes Rating of the movie: " + JSON.parse(body).Ratings[1].Value);
+                console.log("Country where the movie was produced: " + JSON.parse(body).Country);
+                console.log("Language of the movie: " + JSON.parse(body).Language);
+                console.log("Plot of the movie: " + JSON.parse(body).Plot);
+                console.log("Actors in the movie: " + JSON.parse(body).Actors);
+                console.log("");
             }
         })
     }
@@ -92,6 +99,8 @@ else if (whatToSee === "spotify-this-song") {
 }
 else if (whatToSee === "movie-this") {
     if (process.argv.length<4) {
+        console.log("");
+        console.log("Since you didn't chose a movie, perhaps you'd like this movie...");
         movieTitle = "Mr. Nobody";
     }
     else {

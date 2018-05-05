@@ -32,7 +32,7 @@ var choice = {
         });
     },
     mySpotify: function() {
-        console.log("What to see -- " + whatToSee);
+        console.log("in choice.mySpotify . . . What to see -- " + whatToSee);
         // if user did not enter a song 
         if (process.argv.length<4) {
             console.log("");
@@ -66,9 +66,20 @@ var choice = {
             });
         }
 
+    },
+    // if user entered a movie
+    myMovie: function() {
+        console.log("in choice.myMovie . . . What to see -- " + whatToSee);
+        var movieTitleWithPlus = movieTitle.split(" ").join("+");
+        console.log(movieTitleWithPlus);
+        var queryUrl = "https://www.omdbapi.com/?t=" + movieTitleWithPlus + "&y=&plot=short&apikey=trilogy";
+        console.log(queryUrl);
+        request(queryUrl, function(error, response, body) {
+            if(!error && response.statusCode === 200) {
+                console.log(body);
+            }
+        })
     }
-
-
 }
 
 // if user wants to see their tweets
@@ -78,6 +89,15 @@ if (whatToSee === "my-tweets") {
 // if user wants to get information about a song or song fragment
 else if (whatToSee === "spotify-this-song") {
     choice.mySpotify();
+}
+else if (whatToSee === "movie-this") {
+    if (process.argv.length<4) {
+        movieTitle = "Mr. Nobody";
+    }
+    else {
+        movieTitle = argThree;
+    }
+    choice.myMovie();
 }
 else {
     console.log("Sorry. LIRI doesn't understand. Is it possible you made a typo?");

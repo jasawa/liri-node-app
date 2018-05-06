@@ -5,9 +5,9 @@ Welcome to the exciting world of the LIRI Bot. LIRI can give you information abo
 
 ### How to interact with LIRI:
 * All interactions will take place in the command line.
-* Type node liri.js my-tweets and LIRI will respond with twenty of your tweets and the date and time the tweets were created.
-* Type node liri.js spotify-this-song '_song name here_' and LIRI will respond with the Artist(s), the song's name, a preview link of the song from Spotify, and the name of the album containing this track. Note: if no song is provided then, LIRI will default to "The Sign" by Ace of Base.
-* Type node liri.js movie-this '_name of movie_' and LIrI will respond with the following information about your movie: 
+* Type `node liri.js my-tweets` and LIRI will respond with twenty of your tweets and the date and time the tweets were created.
+* Type `node liri.js spotify-this-song '_song name here_'` and LIRI will respond with the Artist(s), the song's name, a preview link of the song from Spotify, and the name of the album containing this track. Note: if no song is provided then, LIRI will default to "The Sign" by Ace of Base.
+* Type `node liri.js movie-this '_name of movie_'` and LIrI will respond with the following information about your movie: 
         * Title of movie
         * Year the movie came out
         * IMDB Rating of the movie
@@ -18,7 +18,7 @@ Welcome to the exciting world of the LIRI Bot. LIRI can give you information abo
         * Featured Actors in the movie
 
     Note: if a movie name is not provided, LIRI will default to the movie, 'Mr. Nobody'
-* Type node liri.js do-what-it-says and LIRI will respond by taking the text inside the random.txt file and following the information therein. Currently the information in the random.txt is spotify-this-song and the song 'I Want it That Way.'  Using the fs Node Package, LIRI will be able to act as if the user typed node liri.js spotify-this-song 'I Want it That Way' and provide the Artist(s), the song's name, a preview link of the song from Spotify, and the name of the album containing this track.
+* Type `node liri.js do-what-it-says` and LIRI will respond by taking the text inside the random.txt file and following the information therein. Currently the information in the random.txt is spotify-this-song and the song 'I Want it That Way.'  Using the fs Node Package, LIRI will be able to act as if the user typed node liri.js spotify-this-song 'I Want it That Way' and provide the Artist(s), the song's name, a preview link of the song from Spotify, and the name of the album containing this track.
 
 ### Before you start:
 Before you start you will need to make a .env file and fill it with you twitter and spotifiy credentials. You will also need to install several npm node packages.

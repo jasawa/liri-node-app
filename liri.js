@@ -108,6 +108,31 @@ else if (whatToSee === "movie-this") {
     }
     choice.myMovie();
 }
+else if (whatToSee === "do-what-it-says") {
+    // store contents of what read in random.txt in data
+    fs.readFile("random.txt", "utf8", function(error, data) {
+        if (error) {
+            return console.log("There was an error in do-what-it-says");
+        }
+        console.log(data);
+        var dataArray = data.split(",");
+        console.log(dataArray);
+        if (dataArray[0] === "my-tweets") {
+            choice.myTweets();
+        }
+        else if (dataArray[0] === "spotify-this-song") {
+            process.argv.length = 4;  // a work-around because user did not actually input a song
+            argThree = dataArray[1];  // will act as if user inputed process.argv[3]
+            console.log("This is dataArray[1] " + dataArray[1]);
+            choice.mySpotify();
+        }
+        else if (dataArray[0] === "movie-this") {
+            movieTitle = dataArray[1];
+            choice.myMovie();
+        }
+    })
+
+}
 else {
     console.log("Sorry. LIRI doesn't understand. Is it possible you made a typo?");
 }
